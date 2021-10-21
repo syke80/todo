@@ -1,12 +1,11 @@
-import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
-import { TasksService } from "../../services/tasks.service";
-import { Task } from "../../models/task";
-import { getFormattedCurrentDate } from "../../helpers/date.helper";
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { TasksService } from '../../services/tasks.service';
+import { Task } from '../../models/task';
+import { getFormattedCurrentDate } from '../../helpers/date.helper';
 
 @Component({
-  selector: "app-task-item",
-  templateUrl: "./task-item.component.html",
-  styleUrls: ["./task-item.component.scss"],
+  selector: 'app-task-item',
+  templateUrl: './task-item.component.html',
 })
 export class TaskItemComponent {
   @Input() task: Task;

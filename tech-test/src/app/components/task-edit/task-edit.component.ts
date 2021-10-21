@@ -1,10 +1,10 @@
-import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
-import { NgForm } from "@angular/forms";
-import { Task } from "../../models/task";
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Task } from '../../models/task';
 
 @Component({
-  selector: "app-task-edit",
-  templateUrl: "./task-edit.component.html",
+  selector: 'app-task-edit',
+  templateUrl: './task-edit.component.html',
 })
 export class TaskEditComponent implements OnInit {
   @Input() task: Task;
@@ -19,7 +19,7 @@ export class TaskEditComponent implements OnInit {
 
   onFormSubmit(form: NgForm) {
     if (form.invalid) {
-      alert("Invalid form. 'Label' can't be blank");
+      alert('Invalid form. "Label" cannot be blank');
       return;
     }
     this.save.emit(this.updatedTask);

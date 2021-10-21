@@ -1,11 +1,11 @@
-import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
-import { Observable } from "rxjs";
-import { Task } from "../models/task";
-import { environment } from "src/environments/environment";
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Task } from '../models/task';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class TasksService {
   constructor(private http: HttpClient) {}
@@ -32,7 +32,7 @@ export class TasksService {
     return this.http.post<Task>(`${environment.apiUrl}/tasks/`, task);
   }
 
-  delete(task: Task): Observable<Object> {
+  delete(task: Task): Observable<object> {
     return this.http.delete(`${environment.apiUrl}/tasks/${task.id}`);
   }
 }

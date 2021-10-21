@@ -1,19 +1,19 @@
 export const mockDate = (expected: Date) => {
-  const _Date = Date
+  const OriginalDate = Date;
 
   function MockDate(mockOverride?: Date | number) {
-    return new _Date(mockOverride || expected)
+    return new OriginalDate(mockOverride || expected);
   }
 
-  MockDate.UTC = _Date.UTC
-  MockDate.parse = _Date.parse
-  MockDate.now = () => expected.getTime()
-  MockDate.prototype = _Date.prototype
+  MockDate.UTC = OriginalDate.UTC;
+  MockDate.parse = OriginalDate.parse;
+  MockDate.now = () => expected.getTime();
+  MockDate.prototype = OriginalDate.prototype;
 
-  global.Date = MockDate as any
+  Date = MockDate as any;
 
   // Callback function to remove the Date mock
   return () => {
-    global.Date = _Date
-  }
-}
+    Date = OriginalDate;
+  };
+};
