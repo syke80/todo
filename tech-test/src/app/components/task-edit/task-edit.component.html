@@ -1,0 +1,31 @@
+<section>
+  <form #form="ngForm" (ngSubmit)="onFormSubmit(form)">
+    <header class="title">
+      <input
+        name="label"
+        placeholder="Task label. E.g: Kitchen cleanup"
+        [(ngModel)]="updatedTask.label"
+        required
+      />
+    </header>
+
+    <p class="description">
+      <textarea
+        name="description"
+        placeholder="Further info about the task. E.g.: Clean my dirty kitchen"
+        [(ngModel)]="updatedTask.description"
+      ></textarea>
+    </p>
+
+    <p class="category">
+      <input
+        name="category"
+        placeholder="Category. E.g.: House"
+        [(ngModel)]="updatedTask.category"
+      />
+    </p>
+
+    <button type="submit">Save</button>
+    <button type="button" (click)="onCancelClicked()">Cancel</button>
+  </form>
+</section>

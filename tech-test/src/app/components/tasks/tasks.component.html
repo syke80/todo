@@ -1,0 +1,27 @@
+<div class="panel">
+  <p class="panel-heading">Todo list</p>
+
+  <app-task-item
+    class="panel-block"
+    *ngFor="let task of tasks"
+    [task]="task"
+    (editClicked)="editTask(task)"
+    (deleteClicked)="deleteTask(task)"
+    (statusClicked)="toggleStatus(task)"
+  ></app-task-item>
+
+  <app-task-edit
+    *ngIf="editingTask"
+    [task]="editingTask"
+    (save)="updateTask($event)"
+    (cancel)="cancelEditing()"
+  ></app-task-edit>
+
+  <button type="button" (click)="onAddTaskClick()">Add</button>
+  <app-task-edit
+    *ngIf="isAdding"
+    [task]="newTask"
+    (save)="createTask($event)"
+    (cancel)="cancelEditing()"
+  ></app-task-edit>
+</div>

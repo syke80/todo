@@ -1,0 +1,17 @@
+<section>
+  <button type="button" (click)="onStatusClicked(task)">
+    {{ task.done ? "✓" : "☐" }}
+  </button>
+  <span *ngIf="task.done" class="done-date">{{ task.done }}</span>
+  <p class="category">
+    {{ task.category }}
+  </p>
+  <header class="title">
+    {{ task.label }}
+  </header>
+  <p class="description">
+    {{ task.description }}
+  </p>
+  <button (click)="onEditClicked(task)">Edit</button>
+  <button (click)="onDeleteClicked(task)">Delete</button>
+</section>
